@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :require_user, only: [:index, :show]
+  before_action :require_user, only: [:index, :show, :destroy]
 
   def index
     @user = current_user
@@ -16,10 +16,27 @@ class TasksController < ApplicationController
   else
     redirect_to '/signup'
   end
+end
+  def destroy
+  @ntask = Task.find(params[:id])
+  if @ntask.destroy
+    redirect_to '/'
+  else
+    redirect_to '/'
+
+end
+end
+
+  def edit
+    @update_task = Task.find(params[:id])
+  end
+  def update
+    @task = Task.find(params[:id])
+    @task.update
   end
  
   private
     def task_params
-      params.require(:task).permit(:title, :notes, :priority)
+      params.require(:task).permit(:title, :notes, :priority, :due)
     end
-end
+

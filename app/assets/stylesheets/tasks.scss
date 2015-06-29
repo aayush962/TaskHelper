@@ -2,14 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h4.middle{
+h5.middle{
 	text-align:center;
 }
 
 .outline{
-	border: 1px solid #9ccc65;
+	border: 1px solid #aed581 ;
 }
 
 .height_fixed{
-	height:250px;
+	height:200px;
+	overflow: scroll;
+	border-radius: 0 !important;
+}
+
+.no-tasks
+{
+	margin-top:70px;
+	text-align:center;
+
+}
+
+.prior{
+	margin-top:100;
+}
+
+.modal-content{
+	width:80% !important;
+}
+
+#modal1{
+	width:50% !important;
+	height:370px !important;
+	overflow:hidden;
+}
+
+.card-footer{
+	position:absolute;
+	bottom: 0px !important;
+	border-top: 1px solid #aed581;
+	width: 100%;
+}
+
+.smaller {
+	font-size: 20px !important;
+}
+
+.high-p{
+	border-top: 7px solid red;
+}
+
+.medium-p{
+	border-top: 7px solid orange;
+}
+
+.low-p{
+	border-top: 7px solid yellow;
+}
+
+.card-close{
+	position:absolute;
+	right:20px;
+	top:20px;
+}
+
+.card-reveal-content{
+	width:90%;
+	padding:5px;
 }
