@@ -3,12 +3,55 @@
 <head>
   <title>Appd</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+	  <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+
+  <li><%= link_to "All Tasks", root_path %></li>
+  <li><a href="#modal1" class="modal-trigger">New Task</a></li>
+  <li><a href="#!">Account Settings</a></li>
+  <li class="divider"></li>
+  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+<nav class="light-green darken-2">
+	<div class="container">
+
+  <div class="nav-wrapper">
+    <%= link_to "Tasker", root_path, class: "brand-logo" %>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#" class="waves-effect waves-light">View Calendar</a></li>
+      <!-- Dropdown Trigger -->
+       
+      	<% if current_user %> 
+      		<li><a class="dropdown-button waves-effect waves-light" href="#!" data-activates="dropdown1">Welcome <%= current_user.first_name %><i class="material-icons right">arrow_drop_down</i></a></li>
+      	<% else %>
+      		<li><%= link_to "SignUp", signup_path %></li> 
+      		<li><%= link_to "Login", login_path %></li>
+      	<% end %>
+      		
+    </ul>
+  </div>
+  </div>
+<!-- Modal Structure -->
+</nav>
+  
+  
+
 <%= yield %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+<script>$(".dropdown-button").dropdown();
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>
 
 </body>
 </html>

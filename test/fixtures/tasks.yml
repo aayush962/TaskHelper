@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  notes: MyText
+  priority: MyString
+  due: MyString
+
+two:
+  title: MyString
+  notes: MyText
+  priority: MyString
+  due: MyString

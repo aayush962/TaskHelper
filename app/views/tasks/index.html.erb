@@ -1,0 +1,65 @@
+<div class="container">
+<div class="row">
+<h4 class="middle"> Listing your tasks </43>
+</div>
+<div class="row">
+  
+<% @user.tasks.each do |task| %>
+        <div class="col s12 m4">
+          <div class="card light-green lighten-4 outline height_fixed">
+            <div class="card-content white-text">
+              <span class="card-title grey-text text-darken-4"><%= task.title %></span>
+              <p><%= task.notes %></p>
+            </div>
+            <div class="card-action">
+              <a href="#" class="activator">View Details</a>
+              <a href="#">This is a link</a>
+            </div>
+            <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Titleclose</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+
+
+          </div>
+        </div>
+
+<% end %>
+      </div>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <%= form_for(@new_task) do |f| %>
+	<p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </p>
+  <p>
+    <%= f.label :priority %><br>
+    <%= f.text_field :priority %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red modal-trigger" href="#modal1">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+
+</div>
