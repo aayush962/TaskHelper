@@ -26,7 +26,6 @@
           	<div class="card height_fixed hoverable high-p">
           		<% end %>
           		<span class="card-title smaller"><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10" data-tooltip="Mark done!">done_all</i></span>
-          		<%= link_to 'Destroy', task_path(task), method: :delete %>
             <div class="card-content">
               <span class="card-title grey-text text-darken-4"><%= task.title %></span>
               <p><%= task.notes %></p>
@@ -97,7 +96,7 @@
   </div>
   <% end %>
   <div class="number"><%= User.count %></div>
-  
+
 
 </div>
 <script>
