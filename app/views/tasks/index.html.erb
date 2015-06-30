@@ -5,9 +5,10 @@
 		<i class="medium material-icons grey-text text-lighten-1">done_all</i></br></br>
 		<a class="waves-effect waves-light btn-large light-green darken-4 modal-trigger" href="#modal1"><i class="material-icons right ">flight_takeoff</i>Create a Task</a>
 	</div>
-	<% else %>
-<div class="row">
-	<% if @user.tasks.count == 1 %><p class="center-align flow-text">1 Task</p>
+  <div class="row">
+	<% elsif @user.tasks.count == 1 %>
+  
+  <p class="center-align flow-text">1 Task</p>
 	<% else %>
 	<p class="center-align flow-text"><%= @user.tasks.count %> Tasks</p>
 </div>
@@ -17,7 +18,7 @@
   
 <% @user.tasks.each do |task| %>
 	
-        <div class="col s6">
+        <div class="col s12 m4">
         	<% if task.priority == "1" %>
           <div class="card height_fixed hoverable low-p ">
           	<% elsif task.priority == "2" %>
