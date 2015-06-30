@@ -1,27 +1,37 @@
-<div id="container">
+
   <div class="row">
-    <div class="col s8 offset-s2">
-<%= form_for(@user) do |f| %>  
-  <div class="field"> 
-    <%= f.label :first_name %><br> 
-    <%= f.text_field :first_name %> 
-  </div> 
-  <div class="field"> 
-    <%= f.label :last_name %><br> 
-    <%= f.text_field :last_name %> 
-  </div> 
-  <div class="field"> 
-    <%= f.label :email %><br> 
-    <%= f.email_field :email %> 
-  </div> 
-  <div class="field"> 
-    <%= f.label :password %><br> 
-    <%= f.password_field :password %> 
-  </div> 
-  <div class="actions"> 
-    <%= f.submit "Create" %> 
-  </div> 
-<% end %>
-</div>
-</div>
-</div>
+    <div class="card col s6 offset-s3 top-margin hoverable signup-form">
+        <%= form_for(@user, :html => { :class => 'col s10 offset-s1' }) do |f| %> 
+        <div class="input-field col s6">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name %> 
+        </div>
+        <div class="input-field col s6">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+      
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :email %>
+          <%= f.email_field :email %> 
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+      </div>
+      <div id="row">
+        <div class="col s10 offset-1">
+        <button class="waves-effect center-align waves-light btn-large blue darken-1" type="submit" name="commit">Launch<i class="material-icons small right">flight_takeoff</i></button>
+    </div>
+  </div>
+    </form>
+    <% end %>
+    </div>
+  </div>
+  </div>

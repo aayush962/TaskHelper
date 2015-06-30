@@ -1,12 +1,10 @@
-<div id="container">
-	  <div class="row">
-    <div class="col s8 offset-s2">
+  <div class="row">
+    <div class="card col s6 offset-s3 top-margin hoverable signup-form">
 
-<%= form_for(:session, url: login_path) do |f| %> 
-  <%= f.email_field :email, :placeholder => "Email" %> 
-  <%= f.password_field :password, :placeholder => "Password" %> 
-  <%= f.submit "Log in", class: "btn-submit" %>
-<% end %>
-</div>
-</div>
+		<%= form_for(:session, url: login_path) do |f| %> 
+  			<%= f.email_field :email, :placeholder => "Email" %> 
+  			<%= f.password_field :password, :placeholder => "Password" %> 
+  			<button class="waves-effect center-align waves-light btn-large blue darken-1" type="submit" name="commit">Login<i class="material-icons small right">person</i></button>
+		<% end %>
+	</div>
 </div>

@@ -29,7 +29,7 @@
               <div class="card height_fixed hoverable ">
             <% end %>
 
-            <span class="card-title smaller activator"><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10"  data-tooltip="Mark done!">done_all</i></span>
+            <span class="card-title smaller "><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10"  data-tooltip="Mark done!">done_all</i></span>
 
             <div class="card-content activator">
               <span class="card-title grey-text text-darken-4"><%= task.title %></span>
@@ -54,43 +54,7 @@
   </div>
 </div>      
 
-<div id="modal1" class="modal">
-    <div class="modal-content container">
-    	<div class="row">
-      <%= form_for(@new_task, :html => { :class => 'col s12' }) do |f| %>
-      	<div class="input-field col s6">
-    	<%= f.label :title %>
-   		 <%= f.text_field :title %>
-   		</div>
-   	
-
-  		<div class="input-field col s6 ">
-  		 
-   		 <%= f.select :priority do %>
-   		 <option value="" disabled selected>Set Task Priority</option>
-  		<% [['Low', 1], ['Medium', 2], ['High', 3]].each do |c| -%>
-   		 <%= content_tag(:option, c.first, value: c.last) %>
- 		 <% end %>
-		<% end %>
-		
-    	</div>
-		</div>
-		<div class="row">
-			<div class="col s6 input-field">
-    <%= f.label :notes %>
-    <%= f.text_area :notes , class: "materialize-textarea", length: "150" %>
-  </div>
-  	<div class="input-field col s6">
-    	<%= f.label :due, value: "Set a Target Date" %></br></br>
-   		 <%= f.text_field :due, class: "datepicker" %>
-   		</div>
-	</div>
-        <button class="waves-effect center-align waves-light btn-large light-green darken-4" type="submit" name="commit">Create Task<i class="material-icons small right">flight_takeoff</i></button>
-
-
-<% end %>
-    </div>
-  </div>
+<%= render 'new_task' %>
 
 
   <% if @tasks.count != 0 %>
