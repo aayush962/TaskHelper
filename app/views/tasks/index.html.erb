@@ -1,52 +1,58 @@
-<div class="container">
-	<% if @user.tasks.count == 0 %>
-	<div class="no-tasks">
-		<p class="flow-text">No Tasks to show. You're All Done!</p>
-		<i class="medium material-icons grey-text text-lighten-1">done_all</i></br></br>
-		<a class="waves-effect waves-light btn-large light-green darken-4 modal-trigger" href="#modal1"><i class="material-icons right ">flight_takeoff</i>Create a Task</a>
-	</div>
-  <div class="row">
-	<% elsif @user.tasks.count == 1 %>
-  
-  <p class="center-align flow-text">1 Task</p>
-	<% else %>
-	<p class="center-align flow-text"><%= @user.tasks.count %> Tasks</p>
+<!-- Number of Tasks -->
+
+<div class="row">
+  <div class="col s12 center-align white-text">
+    <h5 class="flow-text "><%= render 'task_number' %></h5>
+      <span class="new-badge padded red  white-text hoverable "><%= @user.tasks.where(priority: "3").count %> high</span>
+      <span class="new-badge padded amber darken-2 white-text hoverable "><%= @user.tasks.where(priority: "2").count %> medium</span>
+      <span class="new-badge padded light-blue darken-4 white-text hoverable "><%= @user.tasks.where(priority: "1").count %> low</span>
+  </div>
 </div>
 
-<% end %>
-<div class="row">
+<!-- end -->
+
+<!-- Start listing tasks -->
   
+<div class="row">
+  <div class="col s4 m12 l10 offset-l1">
 <% @user.tasks.each do |task| %>
-	
-        <div class="col s4 m12">
+	     
+        <div class="col s4 m12 l4">
+
         	<% if task.priority == "1" %>
-          <div class="card height_fixed hoverable low-p ">
-          	<% elsif task.priority == "2" %>
-          	<div class="card height_fixed hoverable medium-p">
-          	<% elsif task.priority == "3" %>
-          	<div class="card height_fixed hoverable high-p">
-          		<% end %>
-          		<span class="card-title smaller"><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10" data-tooltip="Mark done!">done_all</i></span>
+              <div class="card height_fixed hoverable low-p ">
+            <% elsif task.priority == "2" %>
+            	<div class="card height_fixed hoverable medium-p">
+            <% elsif task.priority == "3" %>
+            	<div class="card height_fixed hoverable high-p">
+            <% else %>
+              <div class="card height_fixed hoverable ">
+            <% end %>
+
+            <span class="card-title smaller"><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10"  data-tooltip="Mark done!">done_all</i></span>
+
             <div class="card-content">
               <span class="card-title grey-text text-darken-4"><%= task.title %></span>
               <p><%= task.notes %></p>
             </div>
+
             <div class="card-footer light-green darken-2">
               <a class="waves-effect waves-light lighten-2 btn-flat btn-small activator white-text">Notes</a>
               <%= link_to 'Edit', edit_task_path(task), class: "modal-trigger waves-effect waves-light lighten-2 btn-flat btn-small  white-text " %>
               <span class="white-text"><%= task.due %></span>
             </div>
+
             <div class="card-reveal light-green darken-2 activator">
             	<div class="card-reveal-content">
-            	<span class="card-title smaller"><%= task.notes %><i class="material-icons card-close">close</i></span>
+            	 <span class="card-title smaller"><%= task.notes %><i class="material-icons card-close">close</i></span>
+              </div>
             </div>
+          </div>
         </div>
-
-        </div>
-      </div>
 
 <% end %>
-      </div>
+  </div>
+</div>      
 
 <div id="modal1" class="modal">
     <div class="modal-content container">

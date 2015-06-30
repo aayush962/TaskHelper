@@ -1,0 +1,9 @@
+<% if @user.tasks.count == 0 %>
+	<span>No Tasks to show. You're All Done!</span>
+<% else %>
+	<% if @user.tasks.count == 1 %>
+			<span>1 Task</span>
+	<% else %>
+		<span><%= @user.tasks.count %> Tasks</span>
+	<% end %>
+<% end %>
