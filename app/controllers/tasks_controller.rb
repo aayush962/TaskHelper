@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :require_user, only: [:index, :show, :destroy]
+  before_action :require_user, only: [:index, :show, :destroy, :mark_done]
 
   def index
     @user = current_user
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     if @new_task.save
     redirect_to '/'
   else
-    redirect_to '/signup'
+    redirect_to '/'
   end
 end
   def destroy
@@ -33,6 +33,13 @@ end
   def update
     @task = Task.find(params[:id])
     @task.update
+  end
+
+  def mark_done
+    @task_done = Task.find(params[:id])
+    @task_done.status = "1"
+    @task_done.save
+    redirect_to '/'
   end
  
   private

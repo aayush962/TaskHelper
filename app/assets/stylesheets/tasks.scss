@@ -33,7 +33,7 @@ h5.middle{
 
 #modal1{
 	width:50% !important;
-	height:370px !important;
+	height:500px !important;
 	overflow:hidden;
 }
 
@@ -53,11 +53,11 @@ h5.middle{
 }
 
 .medium-p{
-	border-top: 7px solid orange;
+	border-top: 7px solid #ffa000;
 }
 
 .low-p{
-	border-top: 7px solid yellow;
+	border-top: 7px solid #8bc34a;
 }
 
 .card-close{
@@ -72,9 +72,10 @@ h5.middle{
 }
 
 .padded {
+	margin-top:20px !important;
 	padding:8px;
 	border: 2px solid #90caf9;
-	border-radius: 15px;
+	border-radius: 10px;
 	margin-left:10px;
 	font-size:12px;
 }

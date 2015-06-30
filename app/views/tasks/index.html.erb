@@ -5,7 +5,7 @@
     <h5 class="flow-text "><%= render 'task_number' %></h5>
       <span class="new-badge padded red  white-text hoverable "><%= @user.tasks.where(priority: "3").count %> high</span>
       <span class="new-badge padded amber darken-2 white-text hoverable "><%= @user.tasks.where(priority: "2").count %> medium</span>
-      <span class="new-badge padded light-blue darken-4 white-text hoverable "><%= @user.tasks.where(priority: "1").count %> low</span>
+      <span class="new-badge padded light-green white-text hoverable "><%= @user.tasks.where(priority: "1").count %> low</span>
   </div>
 </div>
 
@@ -36,13 +36,13 @@
               <p><%= task.notes %></p>
             </div>
 
-            <div class="card-footer  blue darken-3">
+            <div class="card-footer  blue darken-4">
               <a class="waves-effect waves-light lighten-2 btn-flat btn-small activator white-text">Notes</a>
               <%= link_to 'Edit', edit_task_path(task), class: "modal-trigger waves-effect waves-light lighten-2 btn-flat btn-small  white-text " %>
               <span class="white-text"><%= task.due %></span>
             </div>
 
-            <div class="card-reveal  blue darken-3 activator">
+            <div class="card-reveal  blue darken-4 activator">
             	<div class="card-reveal-content">
             	 <span class="card-title smaller"><%= task.notes %><i class="material-icons card-close">close</i></span>
               </div>
@@ -59,7 +59,7 @@
 
   <% if @tasks.count != 0 %>
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large red modal-trigger tooltipped" data-position="left" data-delay="10" data-tooltip="New Task" href="#modal1" >
+    <a class="btn-floating waves-effect waves-light btn-large blue darken-4 modal-trigger tooltipped" data-position="left" data-delay="10" data-tooltip="New Task" href="#modal1" >
       <i class="large material-icons">note_add</i>
     </a>
   </div>
