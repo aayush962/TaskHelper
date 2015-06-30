@@ -29,20 +29,20 @@
               <div class="card height_fixed hoverable ">
             <% end %>
 
-            <span class="card-title smaller"><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10"  data-tooltip="Mark done!">done_all</i></span>
+            <span class="card-title smaller activator"><i class="material-icons card-close tooltipped grey-text text-lighten-3" data-position="top" data-delay="10"  data-tooltip="Mark done!">done_all</i></span>
 
-            <div class="card-content">
+            <div class="card-content activator">
               <span class="card-title grey-text text-darken-4"><%= task.title %></span>
               <p><%= task.notes %></p>
             </div>
 
-            <div class="card-footer light-green darken-2">
+            <div class="card-footer  blue darken-3">
               <a class="waves-effect waves-light lighten-2 btn-flat btn-small activator white-text">Notes</a>
               <%= link_to 'Edit', edit_task_path(task), class: "modal-trigger waves-effect waves-light lighten-2 btn-flat btn-small  white-text " %>
               <span class="white-text"><%= task.due %></span>
             </div>
 
-            <div class="card-reveal light-green darken-2 activator">
+            <div class="card-reveal  blue darken-3 activator">
             	<div class="card-reveal-content">
             	 <span class="card-title smaller"><%= task.notes %><i class="material-icons card-close">close</i></span>
               </div>
